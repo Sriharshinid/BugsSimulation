@@ -1,0 +1,29 @@
+colony: sri
+
+start:
+
+	faceRandomDirection
+	moveForward
+	if i_am_hungry then goto eat_food
+	emitPheromone
+	if i_am_standing_with_an_enemy then goto on_bite
+	moveForward
+	if i_am_hungry then goto eat_food
+	goto start
+
+
+on_food:
+	pickUpFood
+	goto start
+
+eat_food:
+	eatFood
+	goto start
+
+on_hill:
+	dropFood
+	goto start
+
+on_bite:
+	bite
+	goto start

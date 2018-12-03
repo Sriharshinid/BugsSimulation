@@ -1,0 +1,24 @@
+colony: blub
+
+start:
+	moveForward
+	faceRandomDirection
+	moveForward
+	if i_am_standing_on_food then goto on_food
+	if i_am_standing_on_my_anthill go to on_hill
+	if i_was_blocked_from_moving then goto start
+	moveForward
+	faceRandomDirection
+	goto start
+	
+	on_food:
+		pickUpFood
+		goto start
+
+	on_hill:
+		dropFood
+		goto start
+
+	drop_pher:
+		emitPheromone
+		goto start
